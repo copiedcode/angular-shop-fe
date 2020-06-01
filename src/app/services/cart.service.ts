@@ -7,6 +7,7 @@ import {CartModelPublic, CartModelServer} from "../models/cart.model";
 import {BehaviorSubject} from "rxjs";
 import {NavigationExtras, Router} from "@angular/router";
 import {ProductModelServer} from "../models/product.model";
+import {ToastrService} from "ngx-toastr";
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +40,9 @@ export class CartService {
   constructor(private http: HttpClient,
               private productService: ProductService,
               private orderService: OrderService,
-              private router: Router) {
+              private router: Router,
+              private toast: ToastrService,
+              ) {
 
     this.cartTotal$.next(this.cartDataServer.total);
     this.cartData$.next(this.cartDataServer);
@@ -89,7 +92,13 @@ export class CartService {
         this.cartDataClient.total = this.cartDataServer.total;
         localStorage.setItem('cart', JSON.stringify(this.cartDataClient));
         this.cartData$.next({... this.cartDataServer});
-        //TODO: display a toast notification
+        //display a toast message
+        this.toast.success(`${prod.name} add to the cart.`, 'Product Added', {
+          timeOut: 1500,
+          progressBar: true,
+          progressAnimation: 'increasing',
+          positionClass: 'toast-top-right'
+        });
       }
       // 2. Cart has some items already
       else {
@@ -102,7 +111,13 @@ export class CartService {
             this.cartDataServer.data[index].numInCart = this.cartDataServer.data[index].numInCart < prod.quantity ? this.cartDataServer.data[index].numInCart++ : prod.quantity;
           }
           this.cartDataClient.prodData[index].incart = this.cartDataServer.data[index].numInCart;
-          //TODO: display a toast notification
+          //display a toast message
+          this.toast.info(`${prod.name} quantity updated in the cart.`, 'Product Updated', {
+            timeOut: 1500,
+            progressBar: true,
+            progressAnimation: 'increasing',
+            positionClass: 'toast-top-right'
+          });
         }
         // 2.b. item is not in the cart
         else {
@@ -114,7 +129,13 @@ export class CartService {
             incart: 1,
             id: prod.id
           });
-          //TODO: display a toast notification
+          //display a toast message
+          this.toast.success(`${prod.name} add to the cart.`, 'Product Added', {
+            timeOut: 1500,
+            progressBar: true,
+            progressAnimation: 'increasing',
+            positionClass: 'toast-top-right'
+          });
           //TODO: Calculate total amount
           this.cartDataClient.total = this.cartDataServer.total;
           localStorage.setItem('cart', JSON.stringify(this.cartDataClient));
