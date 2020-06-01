@@ -90,9 +90,10 @@ export class CartService {
         this.cartDataServer.data[0].product = prod;
         this.cartDataServer.data[0].numInCart = quantity != undefined ? quantity : 1;
 
-        this.CalculateTotal();
+
         this.cartDataClient.prodData[0].incart = this.cartDataServer.data[0].numInCart;
         this.cartDataClient.prodData[0].id = prod.id;
+        this.CalculateTotal();
         this.cartDataClient.total = this.cartDataServer.total;
         localStorage.setItem('cart', JSON.stringify(this.cartDataClient));
         this.cartData$.next({... this.cartDataServer});
@@ -115,6 +116,8 @@ export class CartService {
             this.cartDataServer.data[index].numInCart < prod.quantity ? this.cartDataServer.data[index].numInCart++ : prod.quantity;
           }
           this.cartDataClient.prodData[index].incart = this.cartDataServer.data[index].numInCart;
+          this.CalculateTotal();
+          this.cartDataClient.total = this.cartDataServer.total;
           localStorage.setItem('cart', JSON.stringify(this.cartDataClient));
 
           //display a toast message
@@ -124,6 +127,7 @@ export class CartService {
             progressAnimation: 'increasing',
             positionClass: 'toast-top-right'
           });
+
         }
         // 2.b. item is not in the cart
         else {
@@ -135,7 +139,6 @@ export class CartService {
             incart: 1,
             id: prod.id
           });
-          localStorage.setItem('cart', JSON.stringify(this.cartDataClient));
 
           //display a toast message
           this.toast.success(`${prod.name} add to the cart.`, 'Product Added', {
