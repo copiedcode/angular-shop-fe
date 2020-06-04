@@ -8,7 +8,7 @@
 
   <!-- When the cart has some items -->
   <ng-container *ngIf="cartData.data[0].numInCart != 0">
-    <dic class="row">
+    <div class="row">
       <div class="col-md-12">
         <table class="table">
           <thead class="table-dark">
@@ -24,7 +24,7 @@
           <tr *ngFor="let c of cartData.data; let i = index">
             <td class="d-flex align-items-center justify-content-around">
               <img [src]="c.product.image" alt="{{ c.product.name }}" height="60" class="order-1">
-              <span class="text-danger mr-md-2" style="cursor: pointer"><i class="fa fa-trash" (click)="cartService.DeleteProductFromCart(i)"></i></span>
+              <span class="text-danger mr-sm-2" style="cursor: pointer"><i class="fa fa-trash" (click)="cartService.DeleteProductFromCart(i)"></i></span>
             </td>
             <td>
               <p>{{ c.product.name }}</p>
@@ -42,6 +42,7 @@
                   <i class="fa fa-plus"></i>
                 </div>
                 <p>{{ c.product.quantity }} currently available.</p>
+
               </form>
             </td>
             <td>
@@ -59,7 +60,14 @@
           </tbody>
         </table>
       </div>
-    </dic>
+      <div class="col-md-12 d-flex mb-5">
+        <div class="d-flex justify-content-between flex-sm-column flex-md-row w-100">
+          <a routerLink="/checkout" class="btn btn-success btn-sm order-1">TO CHECKOUT</a>
+          <a routerLink="/" class="btn btn-danger btn-sm order-0">BACK TO SHOP</a>
+        </div>
+      </div>
+
+    </div>
 
   </ng-container>
 
