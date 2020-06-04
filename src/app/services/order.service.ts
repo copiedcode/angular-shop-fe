@@ -13,7 +13,7 @@ export class OrderService {
   constructor(private http: HttpClient) { }
 
   getSingleOrder(orderID: number){
-    return this.http.get<ProductResponseModel[]>(this.serverURL + '/orders' + orderID).toPromise();
+    return this.http.get<ProductResponseModel[]>(this.serverURL + '/orders/' + orderID).toPromise();
   }
 }
 

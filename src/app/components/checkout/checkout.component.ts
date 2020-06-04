@@ -27,4 +27,9 @@ export class CheckoutComponent implements OnInit {
 
   }
 
+  onCheckout() {
+    this.spinner.show().then(p => {
+      this.cartService.CheckoutFromCart(2);
+    });
+  }
 }

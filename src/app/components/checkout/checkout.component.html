@@ -1,3 +1,12 @@
+<ngx-spinner
+  bdColor="rgba(151,149,149,0.4)"
+  size="large"
+  color="orange"
+  type="ball-clip-rotate-pulse"
+  fullScreen="true">
+  <p style="font-size: 20px; color: black">Booking Order...</p>
+</ngx-spinner>
+
 <!-- SECTION -->
 <div class="section" *ngIf="cartData.data[0].numInCart != 0">
   <!-- container -->
@@ -164,7 +173,7 @@
             I've read and accept the <a href="#">terms & conditions</a>
           </label>
         </div>
-        <a href="#" class="primary-btn order-submit">Place order</a>
+        <button class="btn primary-btn order-submit" (click)="onCheckout()">Place order</button>
       </div>
       <!-- /Order Details -->
     </div>
