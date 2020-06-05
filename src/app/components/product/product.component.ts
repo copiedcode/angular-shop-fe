@@ -33,7 +33,6 @@ export class ProductComponent implements OnInit, AfterViewInit {
       .subscribe(prodID => {
         this.id = prodID;
         this.productService.getSingleProduct(this.id).subscribe( prod => {
-          console.log(prod);
           if(status != "error") {
             this.product = prod;
           }

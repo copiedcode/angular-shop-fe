@@ -1,5 +1,5 @@
 <!-- BREADCRUMB -->
-<div id="breadcrumb" class="section">
+<div id="breadcrumb" class="section" *ngIf="product">
   <!-- container -->
   <div class="container">
     <!-- row -->
@@ -8,8 +8,8 @@
         <ul class="breadcrumb-tree">
           <li><a href="#">Home</a></li>
           <li><a href="#">All Categories</a></li>
-          <li><a href="#">{{ product?.category }}</a></li>
-          <li class="active">{{ product?.name }}</li>
+          <li><a href="#">{{ product.category }}</a></li>
+          <li class="active">{{ product.name }}</li>
         </ul>
       </div>
     </div>
@@ -30,7 +30,7 @@
         <div id="product-main-img">
           <ng-template [ngIf]="thumbImages.length === 0">
             <div class="product-preview">
-              <img [src]="product.image" alt="{{ product?.name }}">
+              <img [src]="product.image" alt="{{ product.name }}">
             </div>
           </ng-template>
           <ng-template [ngIf]="thumbImages.length > 0">
@@ -55,7 +55,7 @@
         <ng-template [ngIf]="thumbImages.length == 0">
           <div id="product-imgs">
             <div class="product-preview">
-              <img [src]="product.image" alt="{{ product?.name }}">
+              <img [src]="product.image" alt="{{ product.name }}">
             </div>
           </div>
         </ng-template>
@@ -67,7 +67,7 @@
       <!-- Product details -->
       <div class="col-md-5">
         <div class="product-details">
-          <h2 class="product-name">{{ product?.name }}</h2>
+          <h2 class="product-name">{{ product.name }}</h2>
           <div>
             <div class="product-rating">
               <i class="fa fa-star"></i>
@@ -79,18 +79,18 @@
             <a class="review-link" href="#">10 Review(s) | Add your review</a>
           </div>
           <div>
-            <h3 class="product-price">{{product?.price | currency: 'EUR'}}</h3>
-            <span class="product-available" *ngIf="product?.quantity != 0">In Stock</span>
-            <span class="product-available" *ngIf="product?.quantity == 0">Not Available</span>
+            <h3 class="product-price">{{product.price | currency: 'EUR'}}</h3>
+            <span class="product-available" *ngIf="product.quantity != 0">In Stock</span>
+            <span class="product-available" *ngIf="product.quantity == 0">Not Available</span>
           </div>
-          <p>{{ product?.description }}</p>
+          <p>{{ product.description }}</p>
 
-          <div class="add-to-cart" *ngIf="product?.quantity>0">
+          <div class="add-to-cart" *ngIf="product.quantity>0">
             <div class="qty-label">
               Qty
               <div class="input-number">
                 <input type="number"
-                       [max]="product?.quantity"
+                       [max]="product.quantity"
                        min="1"
                        [value]="1" readonly
                         #quantity>
@@ -98,20 +98,17 @@
                 <span class="qty-down" (click)="Decrease()">-</span>
               </div>
             </div>
-            <button class="add-to-cart-btn" (click)="addToCart(product?.id)"><i class="fa fa-shopping-cart"></i> add to cart</button>
-            <p class="my-2" style="color: gray">{{ product?.quantity}} left.</p>
+            <button class="add-to-cart-btn" (click)="addToCart(product.id)"><i class="fa fa-shopping-cart"></i> add to cart</button>
+            <p class="my-2" style="color: gray">{{ product.quantity}} left.</p>
           </div>
           <div class="my-4 ">
-            <span class="product-available" *ngIf="product?.quantity == 0">Currently not Available</span>
+            <span class="product-available" *ngIf="product.quantity == 0">Currently not Available</span>
           </div>
-          <ul class="product-btns">
-            <li><a href="#"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
-            <li><a href="#"><i class="fa fa-exchange"></i> add to compare</a></li>
-          </ul>
+
 
           <ul class="product-links">
             <li>Category:</li>
-            <li><a href="#">{{ product?.category }}</a></li>
+            <li><a href="#">{{ product.category }}</a></li>
 
           </ul>
 
