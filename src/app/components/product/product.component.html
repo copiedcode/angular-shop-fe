@@ -1,5 +1,6 @@
+
 <!-- BREADCRUMB -->
-<div id="breadcrumb" class="section" *ngIf="product">
+<div id="breadcrumb" class="section">
   <!-- container -->
   <div class="container">
     <!-- row -->
@@ -8,8 +9,8 @@
         <ul class="breadcrumb-tree">
           <li><a href="#">Home</a></li>
           <li><a href="#">All Categories</a></li>
-          <li><a href="#">{{ product.category }}</a></li>
-          <li class="active">{{ product.name }}</li>
+          <li><a href="#">{{product?.category}}</a></li>
+          <li class="active">{{ product?.name }}</li>
         </ul>
       </div>
     </div>
@@ -20,52 +21,57 @@
 <!-- /BREADCRUMB -->
 
 <!-- SECTION -->
-<div class="section" *ngIf="product">
+<div class="section">
   <!-- container -->
   <div class="container">
     <!-- row -->
     <div class="row">
       <!-- Product main img -->
-      <div class="col-md-5 col-md-push-2">
-        <div id="product-main-img">
-          <ng-template [ngIf]="thumbImages.length === 0">
+      <ng-template [ngIf]="thumbimages.length === 0">
+        <!-- Product main img -->
+        <div class="col-md-5 col-md-push-2">
+          <div id="product-main-img">
             <div class="product-preview">
-              <img [src]="product.image" alt="{{ product.name }}">
-            </div>
-          </ng-template>
-          <ng-template [ngIf]="thumbImages.length > 0">
-            <div class="product-preview" *ngFor="let t of thumbImages">
-              <img [src]="t" alt="{{ product.name }}">
-            </div>
-          </ng-template>
-        </div>
-      </div>
-      <!-- /Product main img -->
-
-      <!-- Product thumb imgs -->
-      <div class="col-md-2  col-md-pull-5">
-
-          <ng-template [ngIf]="thumbImages.length > 0">
-            <div id="product-imgs">
-              <div class="product-preview" *ngFor="let t of thumbImages">
-                <img [src]="t" alt="{{ product.name }}">
-              </div>
-            </div>
-          </ng-template>
-        <ng-template [ngIf]="thumbImages.length == 0">
-          <div id="product-imgs">
-            <div class="product-preview">
-              <img [src]="product.image" alt="{{ product.name }}">
+              <img [src]="product.image" alt="">
             </div>
           </div>
-        </ng-template>
+        </div>
+        <!-- /Product main img -->
+        <!-- Product thumb imgs -->
+        <div class="col-md-2  col-md-pull-5">
+          <div id="product-imgs">
+            <div class="product-preview">
+              <img [src]="product.image" alt="">
+            </div>
 
+          </div>
+        </div>
+        <!-- /Product thumb imgs -->
+      </ng-template>
+      <ng-template [ngIf]="thumbimages.length > 0">
+        <!-- Product main img -->
+        <div class="col-md-5 col-md-push-2">
+          <div id="product-main-img">
+            <div class="product-preview" *ngFor="let t of thumbimages">
+              <img [src]="t" alt="">
+            </div>
+          </div>
+        </div>
+        <!-- /Product main img -->
+        <!-- Product thumb imgs -->
+        <div class="col-md-2  col-md-pull-5">
+          <div id="product-imgs">
+            <div class="product-preview" *ngFor="let t of thumbimages">
+              <img [src]="t" alt="">
+            </div>
 
-      </div>
-      <!-- /Product thumb imgs -->
+          </div>
+        </div>
+        <!-- /Product thumb imgs -->
+      </ng-template>
 
       <!-- Product details -->
-      <div class="col-md-5">
+      <div class="col-md-5" *ngIf="product">
         <div class="product-details">
           <h2 class="product-name">{{ product.name }}</h2>
           <div>
@@ -89,7 +95,8 @@
             <div class="qty-label">
               Qty
               <div class="input-number">
-                <input type="number"
+
+                <input id="qty-input" type="number"
                        [max]="product.quantity"
                        min="1"
                        [value]="1" readonly
