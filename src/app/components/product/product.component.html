@@ -25,50 +25,44 @@
   <!-- container -->
   <div class="container">
     <!-- row -->
-    <div class="row">
+    <div class="row d-flex">
       <!-- Product main img -->
-      <ng-template [ngIf]="thumbimages.length === 0">
-        <!-- Product main img -->
-        <div class="col-md-5 col-md-push-2">
-          <div id="product-main-img">
+      <div class="col-md-5 col-md-push-2">
+        <div id="product-main-img">
+          <ng-template [ngIf]="thumbimages.length === 0">
             <div class="product-preview">
               <img [src]="product.image" alt="">
             </div>
-          </div>
+          </ng-template>
+          <ng-template [ngIf]="thumbimages.length > 0">
+            <div *ngFor="let t of thumbimages" class="product-preview" >
+              <img [src]="t" alt="">
+            </div>
+          </ng-template>
         </div>
-        <!-- /Product main img -->
-        <!-- Product thumb imgs -->
-        <div class="col-md-2  col-md-pull-5">
+      </div>
+      <!-- /Product main img -->
+
+      <!-- Product thumb imgs -->
+      <div class="col-md-2  col-md-pull-5 ">
+        <ng-template [ngIf]="thumbimages.length > 0">
+          <div id="product-imgs">
+            <div *ngFor="let t of thumbimages" class="product-preview">
+              <img [src]="t" alt="">
+            </div>
+          </div>
+        </ng-template>
+        <ng-template [ngIf]="thumbimages.length === 0">
           <div id="product-imgs">
             <div class="product-preview">
               <img [src]="product.image" alt="">
             </div>
+          </div>
+        </ng-template>
+      </div>
+      <!-- /Product thumb imgs -->
 
-          </div>
-        </div>
-        <!-- /Product thumb imgs -->
-      </ng-template>
-      <ng-template [ngIf]="thumbimages.length > 0">
-        <!-- Product main img -->
-        <div class="col-md-5 col-md-push-2">
-          <div id="product-main-img">
-            <div class="product-preview" *ngFor="let t of thumbimages">
-              <img [src]="t" alt="">
-            </div>
-          </div>
-        </div>
-        <!-- /Product main img -->
-        <!-- Product thumb imgs -->
-        <div class="col-md-2  col-md-pull-5">
-          <div id="product-imgs">
-            <div class="product-preview" *ngFor="let t of thumbimages">
-              <img [src]="t" alt="">
-            </div>
 
-          </div>
-        </div>
-        <!-- /Product thumb imgs -->
-      </ng-template>
 
       <!-- Product details -->
       <div class="col-md-5" *ngIf="product">

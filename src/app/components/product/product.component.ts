@@ -20,6 +20,7 @@ export class ProductComponent implements AfterViewInit, OnInit {
   image: string;
 
 
+
   @ViewChild('quantity') quantityInput;
 
   constructor(private route: ActivatedRoute,
@@ -43,6 +44,8 @@ export class ProductComponent implements AfterViewInit, OnInit {
         if(status != "error") {
           this.product = prod;
           this.image = prod.image;
+          console.log(this.image);
+          console.log(this.product.image);
         }
         if (prod.images !== null) {
           this.thumbimages = prod.images.split(';');
