@@ -41,6 +41,12 @@ export class UserService {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
   }
 
+  logout(){
+    this.authService.signOut();
+    this.auth = false;
+    this.authState$.next(this.auth);
+  }
+
 
 
 }
