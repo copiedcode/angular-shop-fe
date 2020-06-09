@@ -56,7 +56,7 @@ export class ProductComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit(): void {
-
+/*
     // Product Main img Slick
     $('#product-main-img').slick({
       infinite: true,
@@ -93,6 +93,9 @@ export class ProductComponent implements AfterViewInit, OnInit {
     if (zoomMainProduct) {
       $('#product-main-img .product-preview').zoom();
     }
+
+    */
+
   }
 
   addToCart(id: number) {
