@@ -35,27 +35,6 @@ export class ProfileComponent implements OnInit {
         this.myUser = data;
       });
 
-    this.authService.authState
-      .pipe(
-        map(user => {
-          if(user instanceof SocialUser){
-            return {
-              ... user,
-              email: 'test@test.com',
-
-            };
-          } else {
-            return user;
-          }
-        })
-      ).subscribe((user: SocialUser) => {
-        if(user != null) {
-          this.myUser = user;
-        } else {
-          return;
-        }
-    });
-
   }
 
   logout() {
