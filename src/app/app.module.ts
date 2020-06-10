@@ -20,6 +20,8 @@ import {FormsModule} from "@angular/forms";
 import {AuthServiceConfig, GoogleLoginProvider, SocialLoginModule} from "angularx-social-login";
 import { CategoryComponent } from './components/category/category.component';
 
+
+
 let config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,

@@ -60,13 +60,13 @@
             <!-- /Wishlist -->
 
             <!-- Cart -->
-            <div class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+            <div class="dropdown show">
+              <a class="dropdown-toggle" href="#" role="button"  data-toggle="dropdown"  aria-expanded="false">
                 <i class="fa fa-shopping-cart"></i>
                 <span>Your Cart</span>
                 <div class="qty"> {{ cartData.data[0].numInCart != 0 ?  cartData.data.length : 0 }}</div>
               </a>
-              <div class="cart-dropdown">
+              <div class="cart-dropdown dropdown-menu">
                 <div class="cart-list" *ngIf="cartData.data[0].numInCart != 0">
                   <div class="product-widget" *ngFor="let c of cartData.data; let i = index">
                     <div class="product-img">
