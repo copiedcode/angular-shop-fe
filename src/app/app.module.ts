@@ -18,6 +18,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import {FormsModule} from "@angular/forms";
 import {AuthServiceConfig, GoogleLoginProvider, SocialLoginModule} from "angularx-social-login";
+import { CategoryComponent } from './components/category/category.component';
 
 let config = new AuthServiceConfig([
   {
@@ -41,7 +42,8 @@ export function provideConfig() {
     ProductComponent,
     ThankyouComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
