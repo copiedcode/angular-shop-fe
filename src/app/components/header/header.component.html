@@ -61,12 +61,13 @@
 
             <!-- Cart -->
             <div class="dropdown show">
-              <a class="dropdown-toggle" href="#" role="button"  data-toggle="dropdown"  aria-expanded="false">
+              <a class="dropdown-toggle" role="button"  data-toggle="dropdown"  aria-expanded="false">
                 <i class="fa fa-shopping-cart"></i>
                 <span>Your Cart</span>
                 <div class="qty"> {{ cartData.data[0].numInCart != 0 ?  cartData.data.length : 0 }}</div>
               </a>
-              <div class="cart-dropdown dropdown-menu">
+              <div class="dropdown-menu cart-dropdown">
+
                 <div class="cart-list" *ngIf="cartData.data[0].numInCart != 0">
                   <div class="product-widget" *ngFor="let c of cartData.data; let i = index">
                     <div class="product-img">
@@ -89,6 +90,7 @@
                   <a routerLink="/checkout">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
               </div>
+
             </div>
             <!-- /Cart -->
 
