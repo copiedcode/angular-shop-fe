@@ -48,7 +48,14 @@ export class UserService {
   }
 
 
-
+  registerUser(email: string, password: string) {
+    this.httpClient.post(`${this.SERVER_URL}/auth/register`, {email, password})
+      .subscribe((data: ResponseModel) => {
+        this.auth = data.auth;
+        this.authState$.next(this.auth);
+        this.userData$.next(data);
+      });
+  }
 }
 
 export interface ResponseModel {

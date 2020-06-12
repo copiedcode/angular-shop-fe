@@ -1,5 +1,6 @@
 <div class="container">
   <div class="jumbotron my-5">
+    <h1 class="text-center mb-3">LOGIN</h1>
     <div class="row">
       <div class="col-md-6 d-flex mx-auto flex-column">
         <form novalidate #myForm="ngForm">
@@ -20,6 +21,9 @@
             <button (click)="signInWithGoogle()" class="btn btn-danger btn-sm btn-block mt-4">
               <span> <i class="fa fa-google"></i> Google </span>
             </button>
+            <hr>
+            <h5>Do you have no account yet?</h5>
+            <a routerLink="/register" class="btn btn-sm btn-light p-2">Klick here to Register</a>
           </div>
         </form>
       </div>

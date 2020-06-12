@@ -10,6 +10,7 @@ import {ProfileComponent} from "./components/profile/profile.component";
 import {ProfileGuard} from "./guard/profile.guard";
 import {CategoryComponent} from "./components/category/category.component";
 import {ContactComponent} from "./components/contact/contact.component";
+import {RegisterComponent} from "./components/register/register.component";
 
 
 const routes: Routes = [
@@ -33,6 +34,9 @@ const routes: Routes = [
   },
   {
     path: 'login', component: LoginComponent
+  },
+  {
+    path: 'register', component: RegisterComponent
   },
   {
     path: 'profile', component: ProfileComponent, canActivate: [ProfileGuard]
