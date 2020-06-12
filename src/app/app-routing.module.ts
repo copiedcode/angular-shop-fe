@@ -9,6 +9,7 @@ import {LoginComponent} from "./components/login/login.component";
 import {ProfileComponent} from "./components/profile/profile.component";
 import {ProfileGuard} from "./guard/profile.guard";
 import {CategoryComponent} from "./components/category/category.component";
+import {ContactComponent} from "./components/contact/contact.component";
 
 
 const routes: Routes = [
@@ -35,6 +36,9 @@ const routes: Routes = [
   },
   {
     path: 'profile', component: ProfileComponent, canActivate: [ProfileGuard]
+  },
+  {
+    path: 'contact', component: ContactComponent
   }
 ];
 
