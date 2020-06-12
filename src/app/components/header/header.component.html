@@ -7,9 +7,7 @@
         <li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
         <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
       </ul>
-      <ul class="header-links pull-right">
-        <li><a routerLink="/profile"><i class="fa fa-user-o"></i>{{ authState ? 'My Account' : 'LOGIN'}}</a></li>
-      </ul>
+
     </div>
   </div>
   <!-- /TOP HEADER -->
@@ -47,14 +45,15 @@
         <!-- /SEARCH BAR -->
 
         <!-- ACCOUNT -->
+
+
         <div class="col-md-3 clearfix">
           <div class="header-ctn">
             <!-- Wishlist -->
             <div>
-              <a href="#">
-                <i class="fa fa-heart-o"></i>
-                <span>Your Wishlist</span>
-                <div class="qty">0</div>
+              <a routerLink="/profile">
+                <i class="fa fa-user-o"></i>
+                <span>{{ authState ? 'My Account' : 'LOGIN'}}</span>
               </a>
             </div>
             <!-- /Wishlist -->
