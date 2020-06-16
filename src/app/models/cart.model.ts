@@ -1,4 +1,5 @@
-import {ProductModelServer} from "./product.model";
+import {ProductModelServer} from './product.model';
+
 
 export interface CartModelServer {
   total: number;

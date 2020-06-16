@@ -4,8 +4,8 @@ export interface ProductModelServer {
   category: string;
   description: string;
   price: number;
-  quantity: number;
   image: string;
+  quantity: number;
   images: string;
 }
 

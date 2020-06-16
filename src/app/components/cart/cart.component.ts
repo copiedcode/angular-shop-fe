@@ -1,4 +1,3 @@
-
 import {Component, OnInit, Inject} from '@angular/core';
 import {CartModelServer} from '../../models/cart.model';
 import {CartService} from '../../services/cart.service';
@@ -15,12 +14,15 @@ export class CartComponent implements OnInit {
   cartTotal: number;
   subTotal: number;
 
-  constructor(public cartService: CartService) { }
+
+  constructor(public cartService: CartService) {
+  }
 
   ngOnInit(): void {
     this.cartService.cartData$.subscribe((data: CartModelServer) => this.cartData = data);
     this.cartService.cartTotal$.subscribe(total => this.cartTotal = total);
   }
+
 
   ChangeQuantity(index: number, increase: boolean) {
     this.cartService.UpdateCartItems(index, increase);
