@@ -475,12 +475,12 @@ textarea.input {
 }
 
 .header-search form .input {
-  width: calc(100% - 260px);
+  width: calc(100% - 261px);
   margin-right: -4px;
 }
 
 .header-search form .search-btn {
-  height: 40px;
+  height: 52px;
   width: 100px;
   background: #D10024;
   color: #FFF;
@@ -550,8 +550,12 @@ textarea.input {
   box-shadow: 0px 0px 0px 2px #E4E7ED;
   z-index: 99;
   right: 0;
-  opacity: 0;
-  visibility: hidden;
+
+}
+
+
+.profileLink:hover {
+  color: inherit;
 }
 
 .dropdown.open>.cart-dropdown {
@@ -1141,10 +1145,10 @@ textarea.input {
   position: absolute;
   top: 0;
   left: 0;
-  height: 14px;
-  width: 14px;
+  height: 20px;
+  width: 20px;
   text-align: center;
-  font-size: 10px;
+  font-size: 14px;
   padding: 0;
   background: #1e1f29;
   border: none;

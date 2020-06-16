@@ -1,19 +1,19 @@
 <div class="container emp-profile">
-  <form novalidate>
+  <form method="post">
     <div class="row">
       <div class="col-md-4">
         <div class="profile-img">
-          <img [src]="myUser?.photoUrl" alt="{{myUser?.firstName || myUser?.fname}}"/>
+          <img [src]="myUser?.photoURL" alt="{{myUser?.firstName || myUser.fname}}"/>
           <div class="file btn btn-lg btn-primary">
             Change Photo
-            <input name="file" type="file"/>
+            <input type="file" name="file"/>
           </div>
         </div>
       </div>
       <div class="col-md-6">
         <div class="profile-head">
           <h5>
-            {{myUser?.name || (myUser.fname + ' ' + myUser.lname)}}
+            {{ myUser?.name || (myUser.fname + ' ' + myUser.lname) }}
           </h5>
           <h6>
             Web Developer and Designer
@@ -21,18 +21,16 @@
           <p class="proile-rating">RANKINGS : <span>8/10</span></p>
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
-              <a aria-controls="home" aria-selected="true" class="nav-link active" data-toggle="tab" href="#home" id="home-tab"
-                 role="tab">About</a>
+              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
             </li>
             <li class="nav-item">
-              <a aria-controls="profile" aria-selected="false" class="nav-link" data-toggle="tab" href="#profile" id="profile-tab"
-                 role="tab">Timeline</a>
+              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
             </li>
           </ul>
         </div>
       </div>
       <div class="col-md-2">
-        <button (click)="logout()" class="btn btn-secondary btn-sm" name="btnAddMore" type="button">Logout</button>
+        <button (click)="logout()" type= "button" class="btn btn-secondary btn-sm" name="btnAddMore" >Logout</button>
       </div>
     </div>
     <div class="row">
@@ -52,13 +50,13 @@
       </div>
       <div class="col-md-8">
         <div class="tab-content profile-tab" id="myTabContent">
-          <div aria-labelledby="home-tab" class="tab-pane fade show active" id="home" role="tabpanel">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <div class="row">
               <div class="col-md-6">
                 <label>User Id</label>
               </div>
               <div class="col-md-6">
-                <p>{{myUser.id || myUser.userId}}</p>
+                <p>Kshiti123</p>
               </div>
             </div>
             <div class="row">
@@ -66,7 +64,7 @@
                 <label>Name</label>
               </div>
               <div class="col-md-6">
-                <p>{{myUser.name || myUser.username}}</p>
+                <p>Kshiti Ghelani</p>
               </div>
             </div>
             <div class="row">
@@ -74,7 +72,7 @@
                 <label>Email</label>
               </div>
               <div class="col-md-6">
-                <p>{{myUser.email}}</p>
+                <p>kshitighelani@gmail.com</p>
               </div>
             </div>
             <div class="row">
@@ -82,7 +80,7 @@
                 <label>Phone</label>
               </div>
               <div class="col-md-6">
-                <p>9999-778-754</p>
+                <p>123 456 7890</p>
               </div>
             </div>
             <div class="row">
@@ -94,7 +92,7 @@
               </div>
             </div>
           </div>
-          <div aria-labelledby="profile-tab" class="tab-pane fade" id="profile" role="tabpanel">
+          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <div class="row">
               <div class="col-md-6">
                 <label>Experience</label>

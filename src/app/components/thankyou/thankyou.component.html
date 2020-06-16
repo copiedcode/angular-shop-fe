@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container my-5" >
   <div class="row">
     <div class="col-md-12">
       <div class="jumbotron text-center">
@@ -7,7 +7,7 @@
         <hr>
         <p>
 
-        <p>Order Id : <strong>{{orderId}}</strong></p>
+        <p>Order Id : <strong>{{orderID}}</strong></p>
       </div>
 
       <table class="table table-striped">
@@ -25,22 +25,31 @@
             <img [src]="p.image" alt="{{p.name}}" class="img-thumbnail" width="100px">
           </td>
           <td>{{p.name}}</td>
-          <td>{{p.price | currency:'USD'}}</td>
+          <td>{{p.price | currency:'EUR'}}</td>
           <td>{{p.quantityOrdered}}</td>
         </tr>
 
         <tr class="border-0">
-          <td style="border: none;"></td>
           <td></td>
-          <td>TOTAL</td>
-          <td>{{cartTotal | currency:'USD'}}</td>
-
+          <td><b>SUBTOTAL</b></td>
+          <td>{{cartTotal | currency:'EUR'}}</td>
+          <td></td>
+        </tr>
+        <tr class="border-0">
+          <td></td>
+          <td>SHIPPING</td>
+          <td><b>FREE</b></td>
+          <td></td>
+        </tr>
+        <tr style="font-size: 1.2em">
+          <td></td>
+          <td><b>TOTAL</b></td>
+          <td ><b>{{cartTotal | currency:'EUR'}}</b></td>
+          <td></td>
         </tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
-
-
 

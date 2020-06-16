@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {OrderService} from '../../services/order.service';
-import {Router} from '@angular/router';
+import {Router} from "@angular/router";
+import {OrderService} from "../../services/order.service";
 
 @Component({
   selector: 'app-thankyou',
@@ -8,34 +8,29 @@ import {Router} from '@angular/router';
   styleUrls: ['./thankyou.component.scss']
 })
 export class ThankyouComponent implements OnInit {
- message: string;
- orderId: number;
- products: ProductResponseModel[] = [];
- cartTotal: number;
+  message: string;
+  orderID: number;
+  products: any[] = [];
+  cartTotal: number;
+
   constructor(private router: Router,
               private orderService: OrderService) {
     const navigation = this.router.getCurrentNavigation();
-
     const state = navigation.extras.state as {
       message: string,
       products: ProductResponseModel[],
-      orderId: number,
+      orderID, number,
       total: number
     };
-
     this.message = state.message;
     this.products = state.products;
-    console.log(this.products);
-    this.orderId = state.orderId;
+    this.orderID = state.orderID;
     this.cartTotal = state.total;
-
-
 
   }
 
   ngOnInit(): void {
   }
-
 }
 
 interface ProductResponseModel {
@@ -46,3 +41,5 @@ interface ProductResponseModel {
   image: string;
   quantityOrdered: number;
 }
+
+
