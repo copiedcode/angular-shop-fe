@@ -11,6 +11,7 @@ import {ProfileGuard} from "./guard/profile.guard";
 import {CategoryComponent} from "./components/category/category.component";
 import {ContactComponent} from "./components/contact/contact.component";
 import {RegisterComponent} from "./components/register/register.component";
+import {HotComponent} from "./components/hot/hot.component";
 
 
 const routes: Routes = [
@@ -22,6 +23,9 @@ const routes: Routes = [
   },
   {
     path: 'category/:catName', component: CategoryComponent
+  },
+  {
+    path: 'hot', component: HotComponent
   },
   {
     path: 'cart', component: CartComponent
