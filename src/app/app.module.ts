@@ -21,6 +21,7 @@ import {AuthServiceConfig, GoogleLoginProvider, SocialLoginModule} from "angular
 import { CategoryComponent } from './components/category/category.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { RegisterComponent } from './components/register/register.component';
+import { HotComponent } from './components/hot/hot.component';
 
 
 
@@ -49,7 +50,8 @@ export function provideConfig() {
     ProfileComponent,
     CategoryComponent,
     ContactComponent,
-    RegisterComponent
+    RegisterComponent,
+    HotComponent
   ],
   imports: [
     BrowserModule,
