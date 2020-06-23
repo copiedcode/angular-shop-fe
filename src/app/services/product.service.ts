@@ -32,4 +32,11 @@ export class ProductService {
 }
 
 
+  getHotProducts(numberOfResults = 12): Observable<ServerResponse>{
+    return this.http.get<ServerResponse>(this.SERVER_URL + '/products/hot', {
+      params:{
+        limit: numberOfResults.toString()
+      }
+    });
+  }
 }
