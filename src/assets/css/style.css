@@ -556,7 +556,6 @@ textarea.input {
   box-shadow: 0px 0px 0px 2px #E4E7ED;
   z-index: 99;
   right: 0;
-
 }
 
 
@@ -675,6 +674,11 @@ textarea.input {
 \*----------------------------*/
 
 @media only screen and (max-width: 991px) {
+  .cart-dropdown {
+    left: -20vw;
+  width: 300px;
+  }
+
   .header-ctn .menu-toggle {
     display: inline-block;
   }
@@ -1159,6 +1163,10 @@ textarea.input {
   background: #1e1f29;
   border: none;
   color: #FFF;
+}
+
+.product-widget .delete:hover {
+  background: #D10024;
 }
 
 /*----------------------------*\
